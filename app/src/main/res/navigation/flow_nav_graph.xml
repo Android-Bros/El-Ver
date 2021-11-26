@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/aidMapFragment"
+        android:name="com.androidbros.elver.AidMapFragment"
+        android:label="fragment_aid_map"
+        tools:layout="@layout/fragment_aid_map" >
+        <action
+            android:id="@+id/action_aidMapFragment_to_requirementFragment"
+            app:destination="@id/requirementFragment" />
+        <action
+            android:id="@+id/action_aidMapFragment_to_animalHealthInfo"
+            app:destination="@id/animalHealthInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/animalHealthInfo"
+        android:name="com.androidbros.elver.AnimalHealthInfo"
+        android:label="fragment_animal_health_info"
+        tools:layout="@layout/fragment_animal_health_info" >
+        <action
+            android:id="@+id/action_animalHealthInfo_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.androidbros.elver.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_aidMapFragment"
+            app:destination="@id/aidMapFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_emergencyInformationFragment"
+            app:destination="@id/emergencyInformationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_needyMapFragment"
+            app:destination="@id/needyMapFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/needyMapFragment"
+        android:name="com.androidbros.elver.NeedyMapFragment"
+        android:label="fragment_needy_map"
+        tools:layout="@layout/fragment_needy_map" />
+    <fragment
+        android:id="@+id/requirementFragment"
+        android:name="com.androidbros.elver.RequirementFragment"
+        android:label="fragment_requirement"
+        tools:layout="@layout/fragment_requirement" >
+        <action
+            android:id="@+id/action_requirementFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.androidbros.elver.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/emergencyInformationFragment"
+        android:name="com.androidbros.elver.EmergencyInformationFragment"
+        android:label="fragment_emergency_information"
+        tools:layout="@layout/fragment_emergency_information" />
+</navigation>

@@ -1,11 +1,12 @@
-package com.androidbros.elver
+package com.androidbros.elver.presentation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.androidbros.elver.R
 
-class MainActivity : AppCompatActivity() {
+class FlowActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_flow)
     }
 }

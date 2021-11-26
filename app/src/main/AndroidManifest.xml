@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Elver">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.ui.FlowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
