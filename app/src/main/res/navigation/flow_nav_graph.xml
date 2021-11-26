@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/aidMapFragment"
-        android:name="com.androidbros.elver.AidMapFragment"
+        android:name="com.androidbros.elver.presentation.ui.AidMapFragment"
         android:label="fragment_aid_map"
         tools:layout="@layout/fragment_aid_map" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/animalHealthInfo"
-        android:name="com.androidbros.elver.AnimalHealthInfo"
+        android:name="com.androidbros.elver.presentation.ui.AnimalHealthInfo"
         android:label="fragment_animal_health_info"
         tools:layout="@layout/fragment_animal_health_info" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.androidbros.elver.HomeFragment"
+        android:name="com.androidbros.elver.presentation.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -45,12 +45,12 @@
     </fragment>
     <fragment
         android:id="@+id/needyMapFragment"
-        android:name="com.androidbros.elver.NeedyMapFragment"
+        android:name="com.androidbros.elver.presentation.ui.NeedyMapFragment"
         android:label="fragment_needy_map"
         tools:layout="@layout/fragment_needy_map" />
     <fragment
         android:id="@+id/requirementFragment"
-        android:name="com.androidbros.elver.RequirementFragment"
+        android:name="com.androidbros.elver.presentation.ui.RequirementFragment"
         android:label="fragment_requirement"
         tools:layout="@layout/fragment_requirement" >
         <action
@@ -59,12 +59,12 @@
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
-        android:name="com.androidbros.elver.UserProfileFragment"
+        android:name="com.androidbros.elver.presentation.ui.UserProfileFragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" />
     <fragment
         android:id="@+id/emergencyInformationFragment"
-        android:name="com.androidbros.elver.EmergencyInformationFragment"
+        android:name="com.androidbros.elver.presentation.ui.EmergencyInformationFragment"
         android:label="fragment_emergency_information"
         tools:layout="@layout/fragment_emergency_information" />
 </navigation>
