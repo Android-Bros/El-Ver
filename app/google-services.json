@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "788696460496",
+    "project_id": "el-ver",
+    "storage_bucket": "el-ver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788696460496:android:bb5a12d26a1cb0b6a002d5",
+        "android_client_info": {
+          "package_name": "com.androidbros.elver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788696460496-vkcngjokq11tgrgkcq8jj9v0mgmhje44.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.androidbros.elver",
+            "certificate_hash": "0a5a1e80b6a9dc0e4b15a20c504609582ca82145"
+          }
+        },
+        {
+          "client_id": "788696460496-ld5a6ha51d09emt11iu0i3oa1p8imtc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzm95h3Nw9rC-Rqt8c7zhfGkiaETh7rI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788696460496-ld5a6ha51d09emt11iu0i3oa1p8imtc4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
