@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">elver</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="password">password</string>
-
+    <string name="password">Password</string>
     <string name="forgot_password">forgot password?</string>
     <string name="login">Login</string>
     <string name="or_sign_up_using">Or Sign Up Using</string>
@@ -16,5 +15,5 @@
     <string name="phone_number">Phone Number</string>
     <string name="register">Register</string>
     <string name="already_have_an_account">Already have an account?</string>
-
+    <string name="image">image</string>
 </resources>
