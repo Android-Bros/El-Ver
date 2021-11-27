@@ -70,4 +70,8 @@
     <string name="food_water">Gıda ve Su</string>
     <string name="tent">Çadır</string>
     <string name="requirement_request">Yardım İsteği Gönder</string>
+    <string name="send_emergency">Acil Yardım Gönder</string>
+    <string name="no">Hayır</string>
+    <string name="are_you_sure_send_emergency_message">"Acil Yardım İstediğinize Emin Misiniz? "</string>
+    <string name="success">Acil Durum Bildirimi Gönderildi</string>
 </resources>
