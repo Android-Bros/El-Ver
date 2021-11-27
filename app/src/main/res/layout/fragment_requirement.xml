@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.RequirementFragment">
+    tools:context=".presentation.ui.requirement.RequirementFragment">
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/edit_text_surname"
+            android:id="@+id/edit_text_people"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="false"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox_CleaningMaterials" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_requirementMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Konum Seç"

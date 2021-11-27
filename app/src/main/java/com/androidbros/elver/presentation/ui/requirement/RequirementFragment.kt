@@ -1,4 +1,4 @@
-package com.androidbros.elver.presentation.ui
+package com.androidbros.elver.presentation.ui.requirement
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

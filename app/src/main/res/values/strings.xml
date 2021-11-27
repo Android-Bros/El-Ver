@@ -54,6 +54,7 @@
     <string name="yes">Evet</string>
     <string name="are_you_want_to_delete_account">Hesabını silmek istiyor musun?</string>
     <string name="permissionDenied">İzin Reddedildi!</string>
-    <string name="howmanypeople">Kaç Kişinin Yardıma İhtiyacı Var</string>
+    <string name="howmanypeople">Kaç Kişinin Yardıma İhtiyacı Var?</string>
     <string name="notification">Notification</string>
+    <string name="animaltype">Hayvanın Türü Nedir?</string>
 </resources>
