@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.androidbros.elver.adapter.NeedyListAdapter
+import com.androidbros.elver.presentation.adapter.NeedyListAdapter
 import com.androidbros.elver.databinding.FragmentNeedyListBinding
 import com.androidbros.elver.model.Requirement
 

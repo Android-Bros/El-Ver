@@ -1,4 +1,4 @@
-package com.androidbros.elver.adapter
+package com.androidbros.elver.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

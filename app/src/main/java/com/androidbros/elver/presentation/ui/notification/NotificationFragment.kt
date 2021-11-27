@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.androidbros.elver.R
-import com.androidbros.elver.adapter.NotificationListAdapter
+import com.androidbros.elver.presentation.adapter.NotificationListAdapter
 import com.androidbros.elver.databinding.FragmentNotificationBinding
 import com.androidbros.elver.util.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
