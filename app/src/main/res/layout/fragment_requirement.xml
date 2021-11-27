@@ -25,9 +25,9 @@
             android:id="@+id/edit_text_people"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="false"
+            android:focusable="true"
             android:hint="@string/howmanypeople"
-            android:inputType="none" />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -86,10 +86,10 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox_CleaningMaterials" />
 
     <Button
-        android:id="@+id/button_requirementMap"
+        android:id="@+id/button_requirementRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Konum Seç"
+        android:text="Yardım İsteği GÖnder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

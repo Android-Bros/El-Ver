@@ -6,7 +6,7 @@
         android:title="@string/home" />
 
     <item
-        android:id="@+id/aidMapFragment"
+        android:id="@+id/aidSelectFragment"
         android:icon="@drawable/emergency_area"
         android:title="@string/emergency_help" />
 

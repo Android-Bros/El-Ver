@@ -46,9 +46,9 @@
             android:id="@+id/edit_text_animal_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="false"
+            android:focusable="true"
             android:hint="@string/animaltype"
-            android:inputType="none" />
+            android:inputType="text" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -65,11 +65,11 @@
         app:layout_constraintTop_toBottomOf="@+id/text_animal" />
 
     <Button
-        android:id="@+id/button_animalMap"
+        android:id="@+id/button_animalHealthRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Konum Seç"
+        android:text="Yardım İsteği Gönder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
