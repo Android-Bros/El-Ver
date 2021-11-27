@@ -30,9 +30,7 @@ class NotificationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.notification.observe(viewLifecycleOwner) {
-            for (item in it) {
-                println(item.message)
-            }
+
         }
 
     }
