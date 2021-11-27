@@ -7,7 +7,7 @@
     <string name="forgot_password">Şifreni Mi Unuttun?</string>
     <string name="login">Giriş Yap</string>
     <string name="or_sign_up_using">Or Sign Up Using</string>
-    <string name="or_sign_up_with">Or Sign Up With</string>
+    <string name="create_a_new_account">Yeni Bir Hesap Oluştur</string>
     <string name="sign_up">Kaydol</string>
     <string name="fill_in_the_blanks">Boşlukları doldurun!</string>
     <string name="name">İsim</string>
@@ -64,6 +64,7 @@
     <string name="help_request_received">Yardım Talebi Alındı.</string>
     <string name="organization">Organization</string>
     <string name="emergency_news">Acil Durum Haberleri</string>
+    <string name="next">Devam et</string>
     <string name="cleaning_materials">Hijyen Malzemeleri</string>
     <string name="blanket">Uyku Tulumu veya Battaniye</string>
     <string name="clothes">Giyim</string>

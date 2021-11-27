@@ -15,6 +15,8 @@ class EmergencyInformationFragment : Fragment() {
     private var _binding: FragmentEmergencyInformationBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var bottomNavView: BottomNavigationView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,18 +28,18 @@ class EmergencyInformationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bottomNavView =
+        bottomNavView =
             requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavView.visibility = View.GONE
 
         binding.buttonGotIt.setOnClickListener {
             findNavController().navigate(R.id.action_emergencyInformationFragment_to_homeFragment)
-            bottomNavView.visibility = View.VISIBLE
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        bottomNavView.visibility = View.VISIBLE
         _binding = null
     }
 }
