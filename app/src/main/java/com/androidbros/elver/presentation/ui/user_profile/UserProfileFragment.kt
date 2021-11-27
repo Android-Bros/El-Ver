@@ -9,7 +9,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.androidbros.elver.R
-import com.androidbros.elver.UserModel
+import com.androidbros.elver.model.User
 import com.androidbros.elver.databinding.FragmentUserProfileBinding
 import com.androidbros.elver.presentation.ui.MainActivity
 import com.bumptech.glide.Glide
@@ -20,7 +20,7 @@ class UserProfileFragment : Fragment() {
     private var _binding: FragmentUserProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: UserProfileViewModel
-    private var userProfileInfo: UserModel? = null
+    private var userProfileInfo: User? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

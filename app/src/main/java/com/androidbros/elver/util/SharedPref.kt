@@ -26,7 +26,7 @@ class SharedPref(context: Context) {
     }
 
     fun getCurrentLocation(): String? {
-        return mySharedPref.getString("currentLocation","null")
+        return mySharedPref.getString("currentLocation", "null")
     }
 
 }
