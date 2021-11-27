@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.androidbros.elver.presentation.ui.RegisterFragment"
+        android:name="com.androidbros.elver.presentation.ui.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action

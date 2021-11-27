@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/home"
+        android:icon="@drawable/home"/>
+
+    <item
+        android:id="@+id/aidMapFragment"
+        android:title="@string/emergency_help"
+        android:icon="@drawable/emergency_area"/>
+
+    <item
+        android:id="@+id/needyMapFragment"
+        android:title="@string/give_a_hand"
+        android:icon="@drawable/give_a_hand"/>
+
+    <item
+        android:id="@+id/userProfileFragment"
+        android:title="@string/your_profile"
+        android:icon="@drawable/userprofile"/>
+</menu>
