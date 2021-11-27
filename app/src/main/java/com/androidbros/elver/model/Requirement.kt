@@ -1,5 +1,7 @@
 package com.androidbros.elver.model
 
+import com.google.firebase.Timestamp
+
 data class Requirement(
     val location: String,
     val howManyPeople: String,
@@ -8,5 +10,6 @@ data class Requirement(
     val cleaningMaterial: Boolean,
     val tent: Boolean,
     val blanket: Boolean,
-    val uuid: String
+    val uuid: String,
+    val uploadTime: Timestamp
 )
