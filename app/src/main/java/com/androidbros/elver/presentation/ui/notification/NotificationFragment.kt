@@ -1,13 +1,16 @@
 package com.androidbros.elver.presentation.ui.notification
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.androidbros.elver.R
+import com.androidbros.elver.adapter.NotificationListAdapter
 import com.androidbros.elver.databinding.FragmentNotificationBinding
+import com.androidbros.elver.util.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,6 +20,7 @@ class NotificationFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: NotificationViewModel by viewModels()
+    private lateinit var adapter: NotificationListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +33,28 @@ class NotificationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.notification.observe(viewLifecycleOwner) {
+        adapter = NotificationListAdapter()
+        binding.recyclerView.adapter = adapter
 
+        viewModel.notification.observe(viewLifecycleOwner) {
+            when (it) {
+                is NetworkResult.Success -> {
+                    adapter.notifications = it.data!!
+                    binding.progressBar.visibility = View.GONE
+                }
+                is NetworkResult.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                is NetworkResult.Error -> {
+                    binding.apply {
+                        imageViewSad.setImageResource(R.drawable.sad)
+                        imageViewSad.visibility = View.VISIBLE
+                        textViewErrorMessage.text = it.errorMessage
+                        textViewErrorMessage.visibility = View.VISIBLE
+                        progressBar.visibility = View.GONE
+                    }
+                }
+            }
         }
 
     }

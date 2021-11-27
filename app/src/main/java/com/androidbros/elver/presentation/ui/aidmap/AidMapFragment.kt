@@ -74,7 +74,7 @@ class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
             builder.show()
 
             binding.buttonGoRequirementOrAnimal.setOnClickListener {
-                val action = AidMapFragmentDirections.actionAidMapFragmentToAnimalHealthInfo(location)
+                val action = AidMapFragmentDirections.actionAidMapFragmentToRequirementFragment(location)
                 Navigation.findNavController(view).navigate(action)
             }
         }
