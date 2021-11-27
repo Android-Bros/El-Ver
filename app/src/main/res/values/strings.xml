@@ -27,4 +27,9 @@
     <string name="select_picture">Lütfen bir resim seçin.</string>
     <string name="password_must_match">Şifreler aynı olmalıdır!</string>
     <string name="welcome">Hoş Geldin</string>
+    <string name="delete_my_account">Hesabımı Sil</string>
+    <string name="deletion_success">Hesap Silme Başarılı</string>
+    <string name="try_again_later">Sonra tekrar deneyiniz.</string>
+    <string name="yes">Evet</string>
+    <string name="are_you_want_to_delete_account">Hesabını silmek istiyor musun?</string>
 </resources>
