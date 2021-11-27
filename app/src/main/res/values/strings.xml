@@ -29,6 +29,25 @@
     <string name="select_picture">Lütfen bir resim seçin.</string>
     <string name="password_must_match">Şifreler aynı olmalıdır!</string>
     <string name="welcome">Hoş Geldin</string>
+    <string name="what_to_do_in_an_emergency">Acil Durumda Ne Yapmalıyız?</string>
+    <string name="when_should_i_call_112">112\'yi Ne Zaman Aramalıyız?</string>
+    <string name="got_it">Anladım</string>
+
+
+    <string name="what_to_do_in_an_emergency_description">
+        Zamanında hastaya müdahalede bulunmak hayat ve ölüm arasındaki çizgiyi belirler. Acil bir sağlık durumu ile karşılaştığımızda ilk olarak ambulansı ararız. Ambulansın gelmesini beklerken yapmamız gereken hastayı  rahatlatmak olmalıdır.  Bu süre içerisinde ne yapacağımızı bilmek hastanın hayatı için hayati öneme sahiptir. Eğer ne yapmamız gerektiğini bilirsek, gerçekten bir hayat kurtarıyor olabiliriz.
+    </string>
+    <string name="when_should_i_call_122_description">
+        Eğer kişi aşağıdaki durumlardan şikayet ediyorsa 112\'yi arayınız.
+        Göğüs bölgesinde ezilme hissi.Nefes almada zorluk.Yaraya direkt baskı uygulayınca kontrol edilemeyen kanama.
+        Şiddetli yanıklar veya haşlanmalar.
+        Boğulma.
+        Bilinç kaybı.
+        Şiddetli alerjik tepkime.
+        5 dakikadan daha fazla süren bir sara nöbeti ya da bilinmeyen bir nöbet.
+        Diğer acil tıbbi durumlarda kendinize şu soruyu sorunuz:
+        Aile doktoru veya tıbbi eğitim almış bir kişiden yardım/tavsiye alabilir miyim? Eğer cevap hayır ise acil servisi arayınız.
+    </string>
     <string name="delete_my_account">Hesabımı Sil</string>
     <string name="deletion_success">Hesap Silme Başarılı</string>
     <string name="try_again_later">Sonra tekrar deneyiniz.</string>

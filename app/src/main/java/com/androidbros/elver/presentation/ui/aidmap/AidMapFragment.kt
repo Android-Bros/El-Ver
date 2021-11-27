@@ -1,11 +1,10 @@
-package com.androidbros.elver.presentation.ui
+package com.androidbros.elver.presentation.ui.aidmap
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.androidbros.elver.R
@@ -18,11 +17,10 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
+
     private lateinit var binding: FragmentAidMapBinding
     private lateinit var location: String
     private lateinit var mMap: GoogleMap
-    private val mySharedPref = SharedPref(requireContext())
-    private val sharedloc = mySharedPref.getCurrentLocation()
     private val tempStr = "animal"
     private val callback = OnMapReadyCallback { googleMap ->
         googleMap.setOnMapLongClickListener(this)
@@ -48,6 +46,8 @@ class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
             binding.buttonGoRequirementOrAnimal.text = "Hayvanın Özelliklerini Tanımla"
             builder.setMessage(getString(R.string.animal))
             builder.setPositiveButton("Mevcut Konumumu Kullan") { dialog, which ->
+                val mySharedPref = SharedPref(requireContext())
+                val sharedloc = mySharedPref.getCurrentLocation()
                 val action = AidMapFragmentDirections.actionAidMapFragmentToAnimalHealthInfo(sharedloc!!)
                 Navigation.findNavController(view).navigate(action)
             }
@@ -62,6 +62,8 @@ class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
             binding.buttonGoRequirementOrAnimal.text = "İhtiyaçları Detaylandır"
             builder.setMessage(getString(R.string.requirement))
             builder.setPositiveButton("Mevcut Konumumu Kullan") { dialog, which ->
+                val mySharedPref = SharedPref(requireContext())
+                val sharedloc = mySharedPref.getCurrentLocation()
                 val action = AidMapFragmentDirections.actionAidMapFragmentToRequirementFragment(sharedloc!!)
                 Navigation.findNavController(view).navigate(action)
             }

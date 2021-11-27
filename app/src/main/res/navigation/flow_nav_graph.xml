@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph2"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/aidMapFragment">
     <fragment
         android:id="@+id/aidMapFragment"
-        android:name="com.androidbros.elver.presentation.ui.AidMapFragment"
+        android:name="com.androidbros.elver.presentation.ui.aidmap.AidMapFragment"
         android:label="fragment_aid_map"
         tools:layout="@layout/fragment_aid_map">
         <action
@@ -51,9 +51,13 @@
     </fragment>
     <fragment
         android:id="@+id/needyMapFragment"
-        android:name="com.androidbros.elver.presentation.ui.NeedyMapFragment"
+        android:name="com.androidbros.elver.presentation.ui.needy.NeedyMapFragment"
         android:label="fragment_needy_map"
-        tools:layout="@layout/fragment_needy_map" />
+        tools:layout="@layout/fragment_needy_map" >
+        <argument
+            android:name="location"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/requirementFragment"
         android:name="com.androidbros.elver.presentation.ui.RequirementFragment"
@@ -76,5 +80,9 @@
         android:id="@+id/emergencyInformationFragment"
         android:name="com.androidbros.elver.presentation.ui.EmergencyInformationFragment"
         android:label="fragment_emergency_information"
-        tools:layout="@layout/fragment_emergency_information" />
+        tools:layout="@layout/fragment_emergency_information" >
+        <action
+            android:id="@+id/action_emergencyInformationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

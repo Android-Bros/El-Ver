@@ -20,6 +20,7 @@ import com.androidbros.elver.presentation.ui.FlowActivity
 import com.androidbros.elver.util.Constants.SPLASH_TIME
 import com.androidbros.elver.util.SharedPref
 import com.androidbros.elver.util.internetAlertDialogShow
+import kotlin.system.exitProcess
 
 class SplashFragment : Fragment() {
 
@@ -103,8 +104,9 @@ class SplashFragment : Fragment() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 observeInternet()
             } else {
-                Toast.makeText(context, getString(R.string.permissionDenied), Toast.LENGTH_SHORT)
+                Toast.makeText(context, "İzin Verilmedi", Toast.LENGTH_SHORT)
                     .show()
+                exitProcess(-1)
             }
         }
     }
