@@ -4,8 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +15,6 @@ import androidx.navigation.fragment.findNavController
 import com.androidbros.elver.R
 import com.androidbros.elver.databinding.FragmentSplashBinding
 import com.androidbros.elver.presentation.ui.FlowActivity
-import com.androidbros.elver.util.Constants.SPLASH_TIME
 import com.androidbros.elver.util.SharedPref
 import com.androidbros.elver.util.internetAlertDialogShow
 import com.google.firebase.auth.FirebaseAuth
@@ -76,13 +73,12 @@ class SplashFragment : Fragment() {
             mySharedPref = SharedPref(requireContext())
             mySharedPref.setCurrentLocation(lltlng)
             if (mySharedPref.loadOnBoardingState()) {
-                if (FirebaseAuth.getInstance().currentUser!=null){
-                    val intent= Intent(requireActivity(),FlowActivity::class.java)
+                if (FirebaseAuth.getInstance().currentUser != null) {
+                    val intent = Intent(requireActivity(), FlowActivity::class.java)
                     requireActivity().startActivity(intent)
                     requireActivity().finish()
-                }
-                else{
-                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                } else {
+                    findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
                 }
             } else {
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)

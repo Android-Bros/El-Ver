@@ -1,7 +1,7 @@
 package com.androidbros.elver.presentation.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.androidbros.elver.R
 
 class MainActivity : AppCompatActivity() {

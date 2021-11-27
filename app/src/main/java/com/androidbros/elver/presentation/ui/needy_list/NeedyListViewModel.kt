@@ -18,32 +18,10 @@ class NeedyListViewModel : ViewModel() {
     val listOfRequirement = MutableLiveData<ArrayList<Requirement>>()
 
     init {
-        xd()
+        getNeedyListFromFirebase()
     }
 
-    /*private fun getNeedyListFromFirebase() {
-        animation.value = true
-        db.collection("Requirements").get().addOnSuccessListener { documents ->
-            needyList.clear()
-            for (document in documents) {
-                val data = Requirement(
-                    document["location"] as String,
-                    document["howManyPeople"] as String,
-                    document["clothes"] as Boolean,
-                    document["foodAndWater"] as Boolean,
-                    document["cleaningMaterial"] as Boolean,
-                    document["tent"] as Boolean,
-                    document["blanket"] as Boolean,
-                    document["uuid"] as String,
-                )
-                needyList.add(data)
-                listOfRequirement.value = needyList
-            }
-            animation.value = false
-        }
-    }*/
-
-    private fun xd() {
+    private fun getNeedyListFromFirebase() {
         db.collection("Requirements").orderBy(
             "uploadTime",
             Query.Direction.DESCENDING

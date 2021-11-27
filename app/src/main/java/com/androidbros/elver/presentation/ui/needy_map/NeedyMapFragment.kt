@@ -14,11 +14,11 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 class NeedyMapFragment : Fragment() {
+
     val args: NeedyMapFragmentArgs by navArgs()
 
     private val callback = OnMapReadyCallback { googleMap ->
         val locArgs = args.location
-        println(locArgs)
 
         if (locArgs != null) {
             val lat = locArgs.split(",")[0]
