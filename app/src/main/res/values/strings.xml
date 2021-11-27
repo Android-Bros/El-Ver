@@ -64,4 +64,5 @@
     <string name="help_request_received">Yardım Talebi Alındı.</string>
     <string name="organization">Organization</string>
     <string name="emergency_news">Acil Durum Haberleri</string>
+    <string name="next">Devam et</string>
 </resources>
