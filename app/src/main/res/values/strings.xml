@@ -13,14 +13,17 @@
     <string name="name">İsim</string>
     <string name="surname">Soyisim</string>
     <string name="e_mail">E mail</string>
-    <string name="your_profile">your profile</string>
-    <string name="emergency_help">emergency help</string>
-    <string name="give_a_hand">give a hand</string>
-    <string name="home">home</string>
     <string name="repeat_password">Şifre Tekrarı</string>
     <string name="phone_number">Telefon Numarası</string>
     <string name="register">Kaydol</string>
     <string name="already_have_an_account">Zaten Hesabın Var Mı</string>
+    <string name="your_profile">your profile</string>
+    <string name="emergency_help">emergency help</string>
+    <string name="give_a_hand">give a hand</string>
+    <string name="home">home</string>
+    <string name="get_help">Yardım istemek için lütfen butona tıklayınız</string>
+    <string name="emergency_button">Acil Yardım Butonu</string>
+
     <string name="image">image</string>
     <string name="gallery_permission">Lütfen galeri izni veriniz.</string>
     <string name="give_permission">İzin Ver.</string>

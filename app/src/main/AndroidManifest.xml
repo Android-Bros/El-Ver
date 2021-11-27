@@ -38,10 +38,10 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".presentation.ui.MainActivity"
+            android:name=".presentation.ui.FlowActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.FlowActivity"
+            android:name=".presentation.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
