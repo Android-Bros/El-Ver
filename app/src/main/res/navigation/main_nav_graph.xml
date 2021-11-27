@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.androidbros.elver.presentation.ui.login.LoginFragment"
-        android:label="fragment_login"
+        android:label="Giriş Yap"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.androidbros.elver.presentation.ui.register.RegisterFragment"
-        android:label="fragment_register"
+        android:label="Kayıt Ol"
         tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
