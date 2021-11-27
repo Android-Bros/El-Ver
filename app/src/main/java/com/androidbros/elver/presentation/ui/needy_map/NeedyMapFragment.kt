@@ -1,13 +1,11 @@
-package com.androidbros.elver.presentation.ui.needy
-
-import androidx.fragment.app.Fragment
+package com.androidbros.elver.presentation.ui.needy_map
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.androidbros.elver.R
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -18,17 +16,16 @@ class NeedyMapFragment : Fragment() {
     val bundle = arguments
     val args = bundle?.let { NeedyMapFragmentArgs.fromBundle(it) }
 
-
     private val callback = OnMapReadyCallback { googleMap ->
         val locArgs = args?.location
 
-        if (locArgs!=null){
-                val lat = locArgs.split(",")[0]
-                val lon = locArgs.split(",")[1]
-                val location = LatLng(lat.toDouble(), lon.toDouble())
-                googleMap.addMarker(MarkerOptions().position(location))
-                googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
-            }
+        if (locArgs != null) {
+            val lat = locArgs.split(",")[0]
+            val lon = locArgs.split(",")[1]
+            val location = LatLng(lat.toDouble(), lon.toDouble())
+            googleMap.addMarker(MarkerOptions().position(location))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
+        }
 
     }
 

@@ -12,10 +12,10 @@
         android:layout_height="45dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/image"
         android:src="@drawable/information"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/image" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -30,12 +30,12 @@
         android:layout_height="240dp"
         android:layout_gravity="center"
         android:layout_marginTop="4dp"
+        android:contentDescription="@string/image"
         android:padding="16dp"
         android:src="@drawable/emergency"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        android:contentDescription="@string/image" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
         android:id="@+id/text_view_emergency"

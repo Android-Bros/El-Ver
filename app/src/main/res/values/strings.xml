@@ -74,4 +74,5 @@
     <string name="no">Hayır</string>
     <string name="are_you_sure_send_emergency_message">"Acil Yardım İstediğinize Emin Misiniz? "</string>
     <string name="success">Acil Durum Bildirimi Gönderildi</string>
+    <string name="show_on_map">Haritada Göster</string>
 </resources>

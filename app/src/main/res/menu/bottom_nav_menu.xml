@@ -16,7 +16,7 @@
         android:title="@string/notification" />
 
     <item
-        android:id="@+id/needyMapFragment"
+        android:id="@+id/needyListFragment"
         android:icon="@drawable/give_a_hand"
         android:title="@string/give_a_hand" />
 

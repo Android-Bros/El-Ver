@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/text_view_clothes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/clothes" />
+
+        <TextView
+            android:id="@+id/text_view_tent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tent"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_blanket"
+            app:layout_constraintStart_toStartOf="@+id/text_view_clothes"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_clothes" />
+
+        <TextView
+            android:id="@+id/text_view_blanket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blanket"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_cleaning_material"
+            app:layout_constraintStart_toStartOf="@+id/text_view_tent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_tent" />
+
+        <TextView
+            android:id="@+id/text_view_cleaning_material"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cleaning_materials"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_food_water"
+            app:layout_constraintStart_toStartOf="@+id/text_view_blanket"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_blanket" />
+
+        <TextView
+            android:id="@+id/text_view_food_water"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/food_water"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_view_cleaning_material"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_cleaning_material" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.39"
+            app:srcCompat="@drawable/ic_location" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:text="@string/show_on_map"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

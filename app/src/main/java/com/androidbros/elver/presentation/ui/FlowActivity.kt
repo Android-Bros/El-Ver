@@ -31,7 +31,7 @@ class FlowActivity : AppCompatActivity() {
                 R.id.homeFragment,
                 R.id.aidSelectFragment,
                 R.id.notificationFragment,
-                R.id.needyMapFragment,
+                R.id.needyListFragment,
                 R.id.userProfileFragment
             )
         )

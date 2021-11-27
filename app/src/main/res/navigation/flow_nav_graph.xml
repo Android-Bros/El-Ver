@@ -40,9 +40,6 @@
             android:id="@+id/action_homeFragment_to_emergencyInformationFragment"
             app:destination="@id/emergencyInformationFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_needyMapFragment"
-            app:destination="@id/needyMapFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment" />
         <action
@@ -51,10 +48,13 @@
         <action
             android:id="@+id/action_homeFragment_to_aidSelectFragment"
             app:destination="@id/aidSelectFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_needyListFragment"
+            app:destination="@id/needyListFragment" />
     </fragment>
     <fragment
         android:id="@+id/needyMapFragment"
-        android:name="com.androidbros.elver.presentation.ui.needy.NeedyMapFragment"
+        android:name="com.androidbros.elver.presentation.ui.needy_map.NeedyMapFragment"
         android:label="İhtiyaç Sahipleri"
         tools:layout="@layout/fragment_needy_map" >
         <argument
@@ -101,5 +101,14 @@
         <action
             android:id="@+id/action_aidSelectFragment_to_aidMapFragment"
             app:destination="@id/aidMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/needyListFragment"
+        android:name="com.androidbros.elver.presentation.ui.needy_list.NeedyListFragment"
+        android:label="Yardım Et"
+        tools:layout="@layout/fragment_needy_list" >
+        <action
+            android:id="@+id/action_needyListFragment_to_needyMapFragment"
+            app:destination="@id/needyMapFragment" />
     </fragment>
 </navigation>

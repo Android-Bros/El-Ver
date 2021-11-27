@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.androidbros.elver.R
 import com.androidbros.elver.databinding.FragmentAidMapBinding
-import com.androidbros.elver.presentation.ui.needy.NeedyMapFragmentArgs
 import com.androidbros.elver.util.SharedPref
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
