@@ -1,8 +1,8 @@
-package com.androidbros.elver
+package com.androidbros.elver.model
 
 import com.google.firebase.Timestamp
 
-data class UserModel(
+data class User(
     val name: String,
     val surname: String,
     val email: String,

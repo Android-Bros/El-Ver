@@ -5,7 +5,7 @@ import android.net.Uri
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.androidbros.elver.UserModel
+import com.androidbros.elver.model.User
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -61,7 +61,7 @@ class RegisterViewModel : ViewModel() {
                             uploadedImageReference.downloadUrl.addOnSuccessListener { uri ->
                                 imageReferenceLink = uri.toString()
                                 if (imageReferenceLink != null) {
-                                    val user = UserModel(
+                                    val user = User(
                                         name,
                                         surname,
                                         email,
@@ -93,7 +93,7 @@ class RegisterViewModel : ViewModel() {
                                 .show()
                         }
                     } else {
-                        val user = UserModel(
+                        val user = User(
                             name,
                             surname,
                             email,

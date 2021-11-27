@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidbros.elver.R
-import com.androidbros.elver.UserModel
+import com.androidbros.elver.model.User
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -17,7 +17,7 @@ class UserProfileViewModel : ViewModel() {
     private val auth = Firebase.auth
     private val db = Firebase.firestore
     private val userUid = auth.currentUser?.uid
-    lateinit var userInfo: UserModel
+    lateinit var userInfo: User
     private val storage = Firebase.storage
 
     val animation = MutableLiveData<Boolean>()
@@ -38,7 +38,7 @@ class UserProfileViewModel : ViewModel() {
         documentReference.get()
             .addOnSuccessListener { data ->
                 if (data != null) {
-                    val user = UserModel(
+                    val user = User(
                         data["name"] as String,
                         data["surname"] as String,
                         data["email"] as String,
@@ -64,7 +64,7 @@ class UserProfileViewModel : ViewModel() {
             val documentReference = db.collection("Users").document(userUid)
             documentReference.get().addOnSuccessListener { data ->
                 if (data != null) {
-                    val user = UserModel(
+                    val user = User(
                         data["name"] as String,
                         data["surname"] as String,
                         data["email"] as String,

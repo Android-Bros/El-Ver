@@ -57,4 +57,9 @@
     <string name="howmanypeople">Kaç Kişinin Yardıma İhtiyacı Var?</string>
     <string name="notification">Notification</string>
     <string name="animaltype">Hayvanın Türü Nedir?</string>
+    <string name="select_location">Konum Seç</string>
+    <string name="have_a_wound">Herhangi bir yarası bulunuyor mu?</string>
+    <string name="any_burns_on_your_body">Bedeninde yanık bulunuyor mu?</string>
+    <string name="have_a_tremors">Vücudunda titreme var mı?</string>
+    <string name="help_request_received">Yardım Talebi Alındı.</string>
 </resources>
