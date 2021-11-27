@@ -16,5 +16,9 @@
     <string name="phone_number">Phone Number</string>
     <string name="register">Register</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="your_profile">your profile</string>
+    <string name="emergency_help">emergency help</string>
+    <string name="give_a_hand">give a hand</string>
+    <string name="home">home</string>
 
 </resources>
