@@ -47,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:visibility="gone"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/image_view_sad"
         app:layout_constraintStart_toStartOf="@+id/image_view_sad"
         app:layout_constraintTop_toBottomOf="@+id/image_view_sad"

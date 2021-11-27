@@ -1,6 +1,7 @@
 package com.androidbros.elver.presentation.ui.notification
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,21 +37,21 @@ class NotificationFragment : Fragment() {
         binding.recyclerView.adapter = adapter
 
         viewModel.notification.observe(viewLifecycleOwner) {
-            if (!it.data.isNullOrEmpty()) {
-                when (it) {
-                    is NetworkResult.Success -> {
-                        adapter.notifications = it.data
-                        binding.progressBar.visibility = View.GONE
-                    }
-                    is NetworkResult.Loading -> {
-                        binding.progressBar.visibility = View.VISIBLE
-                    }
-                    is NetworkResult.Error -> {
-                        binding.apply {
-                            textViewErrorMessage.text = it.errorMessage
-                            textViewErrorMessage.visibility = View.VISIBLE
-                            progressBar.visibility = View.GONE
-                        }
+            when (it) {
+                is NetworkResult.Success -> {
+                    adapter.notifications = it.data!!
+                    binding.progressBar.visibility = View.GONE
+                }
+                is NetworkResult.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                is NetworkResult.Error -> {
+                    binding.apply {
+                        imageViewSad.setImageResource(R.drawable.sad)
+                        imageViewSad.visibility = View.VISIBLE
+                        textViewErrorMessage.text = it.errorMessage
+                        textViewErrorMessage.visibility = View.VISIBLE
+                        progressBar.visibility = View.GONE
                     }
                 }
             }

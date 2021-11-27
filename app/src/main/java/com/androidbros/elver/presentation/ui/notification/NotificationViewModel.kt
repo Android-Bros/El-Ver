@@ -21,7 +21,6 @@ class NotificationViewModel @Inject constructor(private val elVerRepository: ElV
     val notification: LiveData<NetworkResult<List<Notification>>>
         get() = _notification
 
-
     init {
         getNotification()
     }
