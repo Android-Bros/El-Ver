@@ -23,7 +23,6 @@
     <string name="home">home</string>
     <string name="get_help">Yardım istemek için lütfen butona tıklayınız</string>
     <string name="emergency_button">Acil Yardım Butonu</string>
-
     <string name="image">image</string>
     <string name="gallery_permission">Lütfen galeri izni veriniz.</string>
     <string name="give_permission">İzin Ver.</string>
@@ -49,4 +48,9 @@
         Diğer acil tıbbi durumlarda kendinize şu soruyu sorunuz:
         Aile doktoru veya tıbbi eğitim almış bir kişiden yardım/tavsiye alabilir miyim? Eğer cevap hayır ise acil servisi arayınız.
     </string>
+    <string name="delete_my_account">Hesabımı Sil</string>
+    <string name="deletion_success">Hesap Silme Başarılı</string>
+    <string name="try_again_later">Sonra tekrar deneyiniz.</string>
+    <string name="yes">Evet</string>
+    <string name="are_you_want_to_delete_account">Hesabını silmek istiyor musun?</string>
 </resources>

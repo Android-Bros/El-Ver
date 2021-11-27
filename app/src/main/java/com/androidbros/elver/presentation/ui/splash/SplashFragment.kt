@@ -23,6 +23,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.system.exitProcess
 
 class SplashFragment : Fragment() {
 
@@ -96,6 +97,7 @@ class SplashFragment : Fragment() {
             } else {
                 Toast.makeText(context, "İzin Verilmedi", Toast.LENGTH_SHORT)
                     .show()
+                exitProcess(-1)
             }
         }
     }
