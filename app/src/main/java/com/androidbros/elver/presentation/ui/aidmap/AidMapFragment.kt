@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import com.androidbros.elver.R
 import com.androidbros.elver.databinding.FragmentAidMapBinding
 import com.androidbros.elver.util.SharedPref
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -26,6 +27,12 @@ class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
     private val callback = OnMapReadyCallback { googleMap ->
         googleMap.setOnMapLongClickListener(this)
         mMap = googleMap
+        val mySharedPref = SharedPref(requireContext())
+        val sharedloc = mySharedPref.getCurrentLocation()
+        val lat = sharedloc!!.split(",")[0]
+        val lon = sharedloc!!.split(",")[1]
+        val location = LatLng(lat.toDouble(), lon.toDouble())
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,10f))
     }
 
     override fun onCreateView(
