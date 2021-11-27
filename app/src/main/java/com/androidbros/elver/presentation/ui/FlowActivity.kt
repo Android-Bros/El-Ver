@@ -29,7 +29,7 @@ class FlowActivity : AppCompatActivity() {
         val appConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
-                R.id.aidMapFragment,
+                R.id.aidSelectFragment,
                 R.id.notificationFragment,
                 R.id.needyMapFragment,
                 R.id.userProfileFragment
