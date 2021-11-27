@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.androidbros.elver.R
 import com.androidbros.elver.databinding.FragmentLoginBinding
 import com.androidbros.elver.presentation.ui.FlowActivity
@@ -42,6 +43,10 @@ class LoginFragment : Fragment() {
                 Toast.makeText(requireContext(), R.string.fill_in_the_blanks, Toast.LENGTH_SHORT)
                     .show()
             }
+        }
+
+        binding.textViewSignUp.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
     }
