@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidbros.elver.model.Requirement
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
@@ -52,8 +53,18 @@ class RequirementViewModel : ViewModel() {
 
         val uuid = UUID.randomUUID().toString()
 
+        val time = Timestamp.now()
+
         val healthRequirement = Requirement(
-            location, howManyPeople, clothes, foodAndWater, cleaningMaterial, tent, blanket, uuid
+            location,
+            howManyPeople,
+            clothes,
+            foodAndWater,
+            cleaningMaterial,
+            tent,
+            blanket,
+            uuid,
+            time
         )
 
         db.collection("Requirements").document(uuid).set(healthRequirement)

@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import com.androidbros.elver.R
+import androidx.navigation.fragment.navArgs
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 class NeedyMapFragment : Fragment() {
-    val args : NeedyMapFragmentArgs by navArgs()
+    val args: NeedyMapFragmentArgs by navArgs()
 
     private val callback = OnMapReadyCallback { googleMap ->
         val locArgs = args.location
@@ -25,7 +25,7 @@ class NeedyMapFragment : Fragment() {
             val lon = locArgs.split(",")[1]
             val location = LatLng(lat.toDouble(), lon.toDouble())
             googleMap.addMarker(MarkerOptions().position(location))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,13f))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 13f))
         }
 
     }
