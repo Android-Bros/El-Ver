@@ -20,6 +20,11 @@ import com.androidbros.elver.presentation.ui.FlowActivity
 import com.androidbros.elver.util.Constants.SPLASH_TIME
 import com.androidbros.elver.util.SharedPref
 import com.androidbros.elver.util.internetAlertDialogShow
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
 class SplashFragment : Fragment() {
@@ -28,21 +33,17 @@ class SplashFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var mySharedPref: SharedPref
     private val viewModel: SplashViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
 
-        mySharedPref = SharedPref(requireContext())
+        CoroutineScope(Dispatchers.Main).launch {
 
-        requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 2)
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            viewModel.autoLoginStatus()
-            observeLoginStatus()
-        }, SPLASH_TIME)
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 2)
+            delay(3000)
+        }
 
         return binding.root
     }
@@ -52,7 +53,8 @@ class SplashFragment : Fragment() {
         _binding = null
     }
 
-    private fun observeInternet() {
+
+    fun observeInternet() {
         context?.let {
             viewModel.internetStatusCheck(it)
         }
@@ -71,26 +73,19 @@ class SplashFragment : Fragment() {
         }
         viewModel.location.observe(viewLifecycleOwner, Observer {
             val lltlng = it.latitude.toString() + "," + it.longitude.toString()
+            mySharedPref = SharedPref(requireContext())
             mySharedPref.setCurrentLocation(lltlng)
-        })
-    }
-
-    private fun observeLoginStatus() {
-        viewModel.isThereEntry.observe(viewLifecycleOwner, { value ->
-            value?.let { data ->
-                if (data) {
-                    activity?.let {
-                        val intent = Intent(requireActivity(), FlowActivity::class.java)
-                        it.startActivity(intent)
-                        it.finish()
-                    }
-                } else {
-                    if (mySharedPref.loadOnBoardingState()) {
-                        findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-                    } else {
-                        findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
-                    }
+            if (mySharedPref.loadOnBoardingState()) {
+                if (FirebaseAuth.getInstance().currentUser!=null){
+                    val intent= Intent(requireActivity(),FlowActivity::class.java)
+                    requireActivity().startActivity(intent)
+                    requireActivity().finish()
                 }
+                else{
+                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                }
+            } else {
+                findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
             }
         })
     }
