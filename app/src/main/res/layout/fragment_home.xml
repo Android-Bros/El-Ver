@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.HomeFragment">
+    tools:context=".presentation.ui.home.HomeFragment">
 
     <ImageView
         android:id="@+id/image_view_emergency_information"
@@ -14,7 +14,8 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/information"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/image" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -23,9 +24,8 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.20" />
 
-
     <ImageView
-        android:id="@+id/emergencyHome"
+        android:id="@+id/image_view_emergency"
         android:layout_width="240dp"
         android:layout_height="240dp"
         android:layout_gravity="center"
@@ -34,7 +34,8 @@
         android:src="@drawable/emergency"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        android:contentDescription="@string/image" />
 
     <TextView
         android:id="@+id/text_view_emergency"
@@ -45,10 +46,10 @@
         android:textColor="@color/black"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/emergencyHome"
+        app:layout_constraintEnd_toEndOf="@+id/image_view_emergency"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/emergencyHome"
-        app:layout_constraintTop_toBottomOf="@+id/emergencyHome" />
+        app:layout_constraintStart_toStartOf="@+id/image_view_emergency"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_emergency" />
 
     <TextView
         android:id="@+id/text_view_get_help"
