@@ -1,6 +1,7 @@
 package com.androidbros.elver.presentation.ui.splash
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
@@ -12,17 +13,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.androidbros.elver.R
 import com.androidbros.elver.databinding.FragmentSplashBinding
+import com.androidbros.elver.presentation.ui.FlowActivity
 import com.androidbros.elver.util.Constants.SPLASH_TIME
 import com.androidbros.elver.util.SharedPref
 import com.androidbros.elver.util.internetAlertDialogShow
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
 class SplashFragment : Fragment() {
@@ -31,17 +28,21 @@ class SplashFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var mySharedPref: SharedPref
     private val viewModel: SplashViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
 
-        CoroutineScope(Dispatchers.Main).launch {
+        mySharedPref = SharedPref(requireContext())
 
-            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 2)
-            delay(3000)
-        }
+        requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 2)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            viewModel.autoLoginStatus()
+            observeLoginStatus()
+        }, SPLASH_TIME)
 
         return binding.root
     }
@@ -51,8 +52,7 @@ class SplashFragment : Fragment() {
         _binding = null
     }
 
-
-    fun observeInternet() {
+    private fun observeInternet() {
         context?.let {
             viewModel.internetStatusCheck(it)
         }
@@ -62,11 +62,8 @@ class SplashFragment : Fragment() {
             } else if (!it) {
                 context?.let { it -> internetAlertDialogShow(it) }
             }
-
         })
-
     }
-
 
     private fun observeLocation() {
         context?.let {
@@ -74,17 +71,29 @@ class SplashFragment : Fragment() {
         }
         viewModel.location.observe(viewLifecycleOwner, Observer {
             val lltlng = it.latitude.toString() + "," + it.longitude.toString()
-            mySharedPref = SharedPref(requireContext())
             mySharedPref.setCurrentLocation(lltlng)
-            if (mySharedPref.loadOnBoardingState()) {
-                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-            } else {
-                findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
-            }
         })
     }
 
-
+    private fun observeLoginStatus() {
+        viewModel.isThereEntry.observe(viewLifecycleOwner, { value ->
+            value?.let { data ->
+                if (data) {
+                    activity?.let {
+                        val intent = Intent(requireActivity(), FlowActivity::class.java)
+                        it.startActivity(intent)
+                        it.finish()
+                    }
+                } else {
+                    if (mySharedPref.loadOnBoardingState()) {
+                        findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                    } else {
+                        findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
+                    }
+                }
+            }
+        })
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -101,7 +110,5 @@ class SplashFragment : Fragment() {
             }
         }
     }
-
-
 
 }

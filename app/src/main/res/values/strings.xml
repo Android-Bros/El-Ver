@@ -53,4 +53,5 @@
     <string name="try_again_later">Sonra tekrar deneyiniz.</string>
     <string name="yes">Evet</string>
     <string name="are_you_want_to_delete_account">Hesabını silmek istiyor musun?</string>
+    <string name="permissionDenied">İzin Reddedildi!</string>
 </resources>
