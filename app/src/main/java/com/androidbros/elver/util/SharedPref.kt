@@ -18,4 +18,15 @@ class SharedPref(context: Context) {
         return mySharedPref.getBoolean("isFinished", false)
     }
 
+
+    fun setCurrentLocation(latlon: String) {
+        val editor = mySharedPref.edit()
+        editor.putString("currentLocation", latlon)
+        editor.apply()
+    }
+
+    fun getCurrentLocation(): String? {
+        return mySharedPref.getString("currentLocation","null")
+    }
+
 }
