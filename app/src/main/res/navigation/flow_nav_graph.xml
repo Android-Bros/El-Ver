@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph2"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/animalHealthInfo">
     <fragment
         android:id="@+id/aidMapFragment"
         android:name="com.androidbros.elver.presentation.ui.aidmap.AidMapFragment"
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/animalHealthInfo"
-        android:name="com.androidbros.elver.presentation.ui.AnimalHealthInfo"
+        android:name="com.androidbros.elver.presentation.ui.animal.AnimalHealthInfo"
         android:label="fragment_animal_health_info"
         tools:layout="@layout/fragment_animal_health_info" >
         <action
@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/requirementFragment"
-        android:name="com.androidbros.elver.presentation.ui.RequirementFragment"
+        android:name="com.androidbros.elver.presentation.ui.requirement.RequirementFragment"
         android:label="fragment_requirement"
         tools:layout="@layout/fragment_requirement">
         <action
