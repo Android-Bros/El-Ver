@@ -15,17 +15,21 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 class NeedyMapFragment : Fragment() {
-
     val bundle = arguments
-    val args = NeedyMapFragmentArgs.fromBundle(bundle!!)
-    val locArgs = args.location
+    val args = bundle?.let { NeedyMapFragmentArgs.fromBundle(it) }
+
 
     private val callback = OnMapReadyCallback { googleMap ->
-        val lat = locArgs.split(",")[0]
-        val lon = locArgs.split(",")[1]
-        val location = LatLng(lat.toDouble(), lon.toDouble())
-        googleMap.addMarker(MarkerOptions().position(location))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
+        val locArgs = args?.location
+
+        if (locArgs!=null){
+                val lat = locArgs.split(",")[0]
+                val lon = locArgs.split(",")[1]
+                val location = LatLng(lat.toDouble(), lon.toDouble())
+                googleMap.addMarker(MarkerOptions().position(location))
+                googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
+            }
+
     }
 
     override fun onCreateView(
