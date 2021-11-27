@@ -48,14 +48,14 @@ class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
             builder.setPositiveButton("Mevcut Konumumu Kullan") { dialog, which ->
                 val mySharedPref = SharedPref(requireContext())
                 val sharedloc = mySharedPref.getCurrentLocation()
-                val action = AidMapFragmentDirections.actionAidMapFragmentToAnimalHealthInfo(sharedloc!!)
+                val action = AidMapFragmentDirections.actionAidMapFragmentToAnimalHealthInfo()
                 Navigation.findNavController(view).navigate(action)
             }
             builder.setNegativeButton("Farklı Bir Konum Kullan") { dialog, which ->
             }
             builder.show()
             binding.buttonGoRequirementOrAnimal.setOnClickListener {
-                val action = AidMapFragmentDirections.actionAidMapFragmentToAnimalHealthInfo(location)
+                val action = AidMapFragmentDirections.actionAidMapFragmentToAnimalHealthInfo()
                 Navigation.findNavController(it).navigate(action)
             }
         } else if (tempStr == "requirement") {
