@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/aidMapFragment"
         android:name="com.androidbros.elver.presentation.ui.aidmap.AidMapFragment"
-        android:label="fragment_aid_map"
+        android:label="Yardım Al"
         tools:layout="@layout/fragment_aid_map">
         <action
             android:id="@+id/action_aidMapFragment_to_requirementFragment"
@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/animalHealthInfo"
         android:name="com.androidbros.elver.presentation.ui.animal.AnimalHealthInfo"
-        android:label="fragment_animal_health_info"
+        android:label="Hayvan Sağlık Bilgisi"
         tools:layout="@layout/fragment_animal_health_info" >
         <argument
             android:name="location"
@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.androidbros.elver.presentation.ui.HomeFragment"
-        android:label="fragment_home"
+        android:label="Ana Ekran"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_emergencyInformationFragment"
@@ -55,16 +55,17 @@
     <fragment
         android:id="@+id/needyMapFragment"
         android:name="com.androidbros.elver.presentation.ui.needy.NeedyMapFragment"
-        android:label="fragment_needy_map"
+        android:label="İhtiyaç Sahipleri"
         tools:layout="@layout/fragment_needy_map" >
         <argument
             android:name="location"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/requirementFragment"
         android:name="com.androidbros.elver.presentation.ui.requirement.RequirementFragment"
-        android:label="fragment_requirement"
+        android:label="İnsani Yardım"
         tools:layout="@layout/fragment_requirement">
         <argument
             android:name="location"
@@ -76,12 +77,12 @@
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.androidbros.elver.presentation.ui.user_profile.UserProfileFragment"
-        android:label="fragment_user_profile"
+        android:label="Profilin"
         tools:layout="@layout/fragment_user_profile" />
     <fragment
         android:id="@+id/emergencyInformationFragment"
         android:name="com.androidbros.elver.presentation.ui.EmergencyInformationFragment"
-        android:label="fragment_emergency_information"
+        android:label="Acil Durum Bilgilendirme"
         tools:layout="@layout/fragment_emergency_information" >
         <action
             android:id="@+id/action_emergencyInformationFragment_to_homeFragment"
@@ -90,12 +91,12 @@
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.androidbros.elver.presentation.ui.notification.NotificationFragment"
-        android:label="fragment_notification"
+        android:label="Bildirimler"
         tools:layout="@layout/fragment_notification" />
     <fragment
         android:id="@+id/aidSelectFragment"
         android:name="com.androidbros.elver.presentation.ui.AidSelectFragment"
-        android:label="fragment_aid_select"
+        android:label="Yardım"
         tools:layout="@layout/fragment_aid_select" >
         <action
             android:id="@+id/action_aidSelectFragment_to_aidMapFragment"

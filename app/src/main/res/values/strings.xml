@@ -17,10 +17,10 @@
     <string name="phone_number">Telefon Numarası</string>
     <string name="register">Kaydol</string>
     <string name="already_have_an_account">Zaten Hesabın Var Mı</string>
-    <string name="your_profile">your profile</string>
-    <string name="emergency_help">emergency help</string>
-    <string name="give_a_hand">give a hand</string>
-    <string name="home">home</string>
+    <string name="your_profile">Profilin</string>
+    <string name="emergency_help">Acil Yardım</string>
+    <string name="give_a_hand">Yardım Et</string>
+    <string name="home">Ana Ekran</string>
     <string name="get_help">Yardım istemek için lütfen butona tıklayınız</string>
     <string name="emergency_button">Acil Yardım Butonu</string>
     <string name="image">image</string>
@@ -54,8 +54,8 @@
     <string name="yes">Evet</string>
     <string name="are_you_want_to_delete_account">Hesabını silmek istiyor musun?</string>
     <string name="permissionDenied">İzin Reddedildi!</string>
+    <string name="notification">Bildirimler</string>
     <string name="how_many_people">Kaç Kişinin Yardıma İhtiyacı Var?</string>
-    <string name="notification">Notification</string>
     <string name="animaltype">Hayvanın Türü Nedir?</string>
     <string name="select_location">Konum Seç</string>
     <string name="have_a_wound">Herhangi bir yarası bulunuyor mu?</string>
