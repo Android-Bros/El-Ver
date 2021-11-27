@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.androidbros.elver.presentation.ui.SplashFragment"
+        android:name="com.androidbros.elver.presentation.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
