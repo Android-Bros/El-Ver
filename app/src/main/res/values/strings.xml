@@ -54,8 +54,8 @@
     <string name="yes">Evet</string>
     <string name="are_you_want_to_delete_account">Hesabını silmek istiyor musun?</string>
     <string name="permissionDenied">İzin Reddedildi!</string>
-    <string name="howmanypeople">Kaç Kişinin Yardıma İhtiyacı Var?</string>
     <string name="notification">Bildirimler</string>
+    <string name="how_many_people">Kaç Kişinin Yardıma İhtiyacı Var?</string>
     <string name="animaltype">Hayvanın Türü Nedir?</string>
     <string name="select_location">Konum Seç</string>
     <string name="have_a_wound">Herhangi bir yarası bulunuyor mu?</string>
@@ -65,4 +65,14 @@
     <string name="organization">Organization</string>
     <string name="emergency_news">Acil Durum Haberleri</string>
     <string name="next">Devam et</string>
+    <string name="cleaning_materials">Hijyen Malzemeleri</string>
+    <string name="blanket">Uyku Tulumu veya Battaniye</string>
+    <string name="clothes">Giyim</string>
+    <string name="food_water">Gıda ve Su</string>
+    <string name="tent">Çadır</string>
+    <string name="requirement_request">Yardım İsteği Gönder</string>
+    <string name="send_emergency">Acil Yardım Gönder</string>
+    <string name="no">Hayır</string>
+    <string name="are_you_sure_send_emergency_message">"Acil Yardım İstediğinize Emin Misiniz? "</string>
+    <string name="success">Acil Durum Bildirimi Gönderildi</string>
 </resources>

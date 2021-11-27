@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.androidbros.elver.presentation.ui.HomeFragment"
+        android:name="com.androidbros.elver.presentation.ui.home.HomeFragment"
         android:label="Ana Ekran"
         tools:layout="@layout/fragment_home" >
         <action
@@ -70,6 +70,9 @@
         <argument
             android:name="location"
             app:argType="string" />
+        <action
+            android:id="@+id/action_requirementFragment_to_aidSelectFragment"
+            app:destination="@id/aidSelectFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -88,7 +91,7 @@
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.androidbros.elver.presentation.ui.notification.NotificationFragment"
-        android:label="Bildirimler"
+        android:label="Acil Durum Haberleri"
         tools:layout="@layout/fragment_notification" />
     <fragment
         android:id="@+id/aidSelectFragment"
