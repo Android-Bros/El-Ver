@@ -9,7 +9,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.androidbros.elver.R
 import com.androidbros.elver.databinding.ActivityFlowBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FlowActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFlowBinding

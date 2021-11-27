@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
-        android:name="com.androidbros.elver.presentation.ui.NotificationFragment"
+        android:name="com.androidbros.elver.presentation.ui.notification.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
 </navigation>

@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface NotificationService {
 
     @GET("emergency-messages")
-    suspend fun getWizards(): List<Notification>
+    suspend fun getNotification(): List<Notification>
 
 }
