@@ -28,6 +28,7 @@ class FlowActivity : AppCompatActivity() {
             setOf(
                 R.id.homeFragment,
                 R.id.aidMapFragment,
+                R.id.notificationFragment,
                 R.id.needyMapFragment,
                 R.id.userProfileFragment
             )
