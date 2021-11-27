@@ -23,5 +23,7 @@
     <string name="emergency_help">emergency help</string>
     <string name="give_a_hand">give a hand</string>
     <string name="home">home</string>
+    <string name="get_help">Yardım istemek için lütfen butona tıklayınız</string>
+    <string name="emergency_button">Acil Yardım Butonu</string>
 
 </resources>

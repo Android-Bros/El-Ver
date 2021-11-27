@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph2"
-    app:startDestination="@id/aidMapFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/aidMapFragment"
         android:name="com.androidbros.elver.presentation.ui.AidMapFragment"
