@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.androidbros.elver.R
 import com.androidbros.elver.databinding.FragmentSplashBinding
@@ -65,11 +64,8 @@ class SplashFragment : Fragment() {
             } else if (!it) {
                 context?.let { it -> internetAlertDialogShow(it) }
             }
-
         })
-
     }
-
 
     private fun observeLocation() {
         context?.let {
@@ -94,8 +90,6 @@ class SplashFragment : Fragment() {
         })
     }
 
-
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -111,7 +105,5 @@ class SplashFragment : Fragment() {
             }
         }
     }
-
-
 
 }
