@@ -13,13 +13,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.androidbros.elver.util.internetCheck
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
 class SplashViewModel : ViewModel(), LocationListener {
+
+    private val auth = Firebase.auth
+    var isThereEntry = MutableLiveData<Boolean>()
+
     private lateinit var locationManager: LocationManager
     val internetStatus = MutableLiveData<Boolean>()
     val location = MutableLiveData<Location>()
-
 
     fun internetStatusCheck(context: Context) {
         viewModelScope.launch {
@@ -27,9 +32,7 @@ class SplashViewModel : ViewModel(), LocationListener {
         }
     }
 
-
     fun getLocation(context: Context) {
-
         locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         when (ContextCompat.checkSelfPermission(
             context,
@@ -37,7 +40,6 @@ class SplashViewModel : ViewModel(), LocationListener {
         )) {
             PackageManager.PERMISSION_GRANTED -> {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 5f, this)
-
             }
             else -> {
                 requestPermissions(
@@ -49,8 +51,17 @@ class SplashViewModel : ViewModel(), LocationListener {
         }
     }
 
-
     override fun onLocationChanged(p0: Location) {
         location.value = p0
     }
+
+    fun autoLoginStatus() {
+        firebaseAutoLogin()
+    }
+
+    private fun firebaseAutoLogin() {
+        val currentUser = auth.currentUser
+        isThereEntry.value = currentUser != null
+    }
+
 }
