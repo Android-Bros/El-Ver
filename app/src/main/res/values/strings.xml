@@ -55,4 +55,5 @@
     <string name="are_you_want_to_delete_account">Hesabını silmek istiyor musun?</string>
     <string name="permissionDenied">İzin Reddedildi!</string>
     <string name="howmanypeople">Kaç Kişinin Yardıma İhtiyacı Var</string>
+    <string name="notification">Notification</string>
 </resources>
