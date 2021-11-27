@@ -76,5 +76,9 @@
         android:id="@+id/emergencyInformationFragment"
         android:name="com.androidbros.elver.presentation.ui.EmergencyInformationFragment"
         android:label="fragment_emergency_information"
-        tools:layout="@layout/fragment_emergency_information" />
+        tools:layout="@layout/fragment_emergency_information" >
+        <action
+            android:id="@+id/action_emergencyInformationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
