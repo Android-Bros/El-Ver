@@ -23,7 +23,6 @@
     <string name="home">home</string>
     <string name="get_help">Yardım istemek için lütfen butona tıklayınız</string>
     <string name="emergency_button">Acil Yardım Butonu</string>
-
     <string name="image">image</string>
     <string name="gallery_permission">Lütfen galeri izni veriniz.</string>
     <string name="give_permission">İzin Ver.</string>
