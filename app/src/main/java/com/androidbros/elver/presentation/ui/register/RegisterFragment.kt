@@ -1,11 +1,10 @@
 package com.androidbros.elver.presentation.ui.register
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.androidbros.elver.R
+import androidx.fragment.app.Fragment
 import com.androidbros.elver.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
