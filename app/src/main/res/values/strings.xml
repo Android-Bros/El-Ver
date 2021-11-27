@@ -57,4 +57,6 @@
     <string name="howmanypeople">Kaç Kişinin Yardıma İhtiyacı Var?</string>
     <string name="notification">Notification</string>
     <string name="animaltype">Hayvanın Türü Nedir?</string>
+    <string name="organization">Organization</string>
+    <string name="emergency_news">Acil Durum Haberleri</string>
 </resources>
