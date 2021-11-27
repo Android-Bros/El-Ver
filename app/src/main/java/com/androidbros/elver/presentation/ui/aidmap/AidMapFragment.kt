@@ -21,8 +21,6 @@ class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
     private lateinit var binding: FragmentAidMapBinding
     private lateinit var location: String
     private lateinit var mMap: GoogleMap
-    private val mySharedPref = SharedPref(requireContext())
-    private val sharedloc = mySharedPref.getCurrentLocation()
     private val tempStr = "animal"
     private val callback = OnMapReadyCallback { googleMap ->
         googleMap.setOnMapLongClickListener(this)
@@ -48,6 +46,8 @@ class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
             binding.buttonGoRequirementOrAnimal.text = "Hayvanın Özelliklerini Tanımla"
             builder.setMessage(getString(R.string.animal))
             builder.setPositiveButton("Mevcut Konumumu Kullan") { dialog, which ->
+                val mySharedPref = SharedPref(requireContext())
+                val sharedloc = mySharedPref.getCurrentLocation()
                 val action = AidMapFragmentDirections.actionAidMapFragmentToAnimalHealthInfo(sharedloc!!)
                 Navigation.findNavController(view).navigate(action)
             }
@@ -62,6 +62,8 @@ class AidMapFragment : Fragment(), GoogleMap.OnMapLongClickListener {
             binding.buttonGoRequirementOrAnimal.text = "İhtiyaçları Detaylandır"
             builder.setMessage(getString(R.string.requirement))
             builder.setPositiveButton("Mevcut Konumumu Kullan") { dialog, which ->
+                val mySharedPref = SharedPref(requireContext())
+                val sharedloc = mySharedPref.getCurrentLocation()
                 val action = AidMapFragmentDirections.actionAidMapFragmentToRequirementFragment(sharedloc!!)
                 Navigation.findNavController(view).navigate(action)
             }
