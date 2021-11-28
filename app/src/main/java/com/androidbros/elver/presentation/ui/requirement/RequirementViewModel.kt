@@ -1,10 +1,9 @@
 package com.androidbros.elver.presentation.ui.requirement
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidbros.elver.model.Requirement
+import com.androidbros.elver.util.Constants.REQUIREMENTS
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -16,9 +15,9 @@ class RequirementViewModel : ViewModel() {
 
     val animation = MutableLiveData<Boolean>()
     val dataConfirmation = MutableLiveData<Boolean>()
+    val error = MutableLiveData<String>()
 
     fun shareHealthRequirement(
-        context: Context,
         location: String,
         howManyPeople: String,
         clothes: Boolean,
@@ -28,7 +27,6 @@ class RequirementViewModel : ViewModel() {
         blanket: Boolean
     ) {
         shareRequirementHealth(
-            context,
             location,
             howManyPeople,
             clothes,
@@ -40,7 +38,6 @@ class RequirementViewModel : ViewModel() {
     }
 
     private fun shareRequirementHealth(
-        context: Context,
         location: String,
         howManyPeople: String,
         clothes: Boolean,
@@ -67,19 +64,15 @@ class RequirementViewModel : ViewModel() {
             time
         )
 
-        db.collection("Requirements").document(uuid).set(healthRequirement)
+        db.collection(REQUIREMENTS).document(uuid).set(healthRequirement)
             .addOnCompleteListener { success ->
                 if (success.isSuccessful) {
                     dataConfirmation.value = true
                     animation.value = false
                 }
-            }.addOnFailureListener { error ->
+            }.addOnFailureListener { errorMessage ->
                 animation.value = false
-                Toast.makeText(
-                    context,
-                    error.localizedMessage,
-                    Toast.LENGTH_LONG
-                ).show()
+                error.value = errorMessage.localizedMessage
             }
 
     }

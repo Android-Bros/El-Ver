@@ -42,7 +42,6 @@ class RequirementFragment : Fragment() {
                 val tent: Boolean = binding.checkBoxTent.isChecked
                 val blanket: Boolean = binding.checkBoxBlanket.isChecked
                 viewModel.shareHealthRequirement(
-                    requireContext(),
                     location,
                     howManyPeople,
                     clothes,
@@ -82,6 +81,11 @@ class RequirementFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+            }
+        })
+        viewModel.error.observe(viewLifecycleOwner, { error ->
+            error?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
         })
     }

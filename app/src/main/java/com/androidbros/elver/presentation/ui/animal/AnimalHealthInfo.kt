@@ -40,7 +40,6 @@ class AnimalHealthInfo : Fragment() {
                 val tremor: Boolean = binding.checkBoxTremors.isChecked
                 val animalType: String = binding.editTextAnimalType.text.toString()
                 viewModel.shareAnimalHealth(
-                    requireContext(),
                     location,
                     animalType,
                     burn,
@@ -78,6 +77,11 @@ class AnimalHealthInfo : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+            }
+        })
+        viewModel.error.observe(viewLifecycleOwner, { error ->
+            error?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
         })
     }

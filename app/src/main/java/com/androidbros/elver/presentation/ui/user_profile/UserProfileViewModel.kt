@@ -1,11 +1,11 @@
 package com.androidbros.elver.presentation.ui.user_profile
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.androidbros.elver.R
 import com.androidbros.elver.model.User
+import com.androidbros.elver.util.Constants.IMAGES
+import com.androidbros.elver.util.Constants.TRY_AFTER
+import com.androidbros.elver.util.Constants.USERS
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -23,18 +23,19 @@ class UserProfileViewModel : ViewModel() {
     val animation = MutableLiveData<Boolean>()
     val dataConfirmation = MutableLiveData<Boolean>()
     val deleteAccountState = MutableLiveData<Boolean>()
+    val error = MutableLiveData<String>()
 
-    fun getProfileInfo(context: Context) {
-        pullUserInfo(context)
+    fun getProfileInfo() {
+        pullUserInfo()
     }
 
-    fun deleteAccount(context: Context) {
-        deleteMyAccountFromDatabase(context)
+    fun deleteAccount() {
+        deleteMyAccountFromDatabase()
     }
 
-    private fun pullUserInfo(context: Context) {
+    private fun pullUserInfo() {
         animation.value = true
-        val documentReference = db.collection("Users").document(userUid!!)
+        val documentReference = db.collection(USERS).document(userUid!!)
         documentReference.get()
             .addOnSuccessListener { data ->
                 if (data != null) {
@@ -52,16 +53,17 @@ class UserProfileViewModel : ViewModel() {
                     animation.value = false
                     dataConfirmation.value = true
                 }
-            }.addOnFailureListener { error ->
-                Toast.makeText(context, error.localizedMessage, Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener { errorMessage ->
+                animation.value = false
+                error.value = errorMessage.localizedMessage
             }
     }
 
-    private fun deleteMyAccountFromDatabase(context: Context) {
+    private fun deleteMyAccountFromDatabase() {
         animation.value = true
         val storageRef = storage.reference
         if (userUid != null) {
-            val documentReference = db.collection("Users").document(userUid)
+            val documentReference = db.collection(USERS).document(userUid)
             documentReference.get().addOnSuccessListener { data ->
                 if (data != null) {
                     val user = User(
@@ -75,63 +77,50 @@ class UserProfileViewModel : ViewModel() {
                         data["registrationTime"] as Timestamp
                     )
                     if (user.profileImageName != null) {
-                        storageRef.child("Images").child(user.profileImageName!!)
+                        storageRef.child(IMAGES).child(user.profileImageName!!)
                             .delete().addOnSuccessListener {
-                                db.collection("Users").document(userUid).delete()
+                                db.collection(USERS).document(userUid).delete()
                                     .addOnSuccessListener {
                                         val currentUser = Firebase.auth.currentUser!!
                                         Firebase.auth.signOut()
                                         currentUser.delete().addOnCompleteListener { task ->
                                             if (task.isSuccessful) {
                                                 animation.value = false
-                                                Toast.makeText(
-                                                    context,
-                                                    R.string.deletion_success,
-                                                    Toast.LENGTH_LONG
-                                                ).show()
                                                 deleteAccountState.value = true
                                             }
                                         }.addOnFailureListener {
-                                            Toast.makeText(
-                                                context,
-                                                it.localizedMessage,
-                                                Toast.LENGTH_LONG
-                                            ).show()
+                                            animation.value = false
+                                            error.value = it.localizedMessage
                                         }
                                     }.addOnFailureListener {
-                                        Toast.makeText(
-                                            context,
-                                            it.localizedMessage,
-                                            Toast.LENGTH_LONG
-                                        ).show()
+                                        animation.value = false
+                                        error.value = it.localizedMessage
                                     }
                             }.addOnFailureListener {
-                                Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG)
-                                    .show()
+                                animation.value = false
+                                error.value = it.localizedMessage
                             }
                     } else {
-                        db.collection("Users").document(userUid).delete().addOnSuccessListener {
+                        db.collection(USERS).document(userUid).delete().addOnSuccessListener {
                             auth.currentUser!!.delete().addOnSuccessListener {
                                 animation.value = false
-                                Toast.makeText(
-                                    context,
-                                    R.string.deletion_success,
-                                    Toast.LENGTH_LONG
-                                ).show()
                             }.addOnFailureListener {
-                                Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG)
-                                    .show()
+                                animation.value = false
+                                error.value = it.localizedMessage
                             }
                         }.addOnFailureListener {
-                            Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
+                            animation.value = false
+                            error.value = it.localizedMessage
                         }
                     }
                 }
-            }.addOnFailureListener { error ->
-                Toast.makeText(context, error.localizedMessage, Toast.LENGTH_LONG).show()
+            }.addOnFailureListener {
+                animation.value = false
+                error.value = it.localizedMessage
             }
         } else {
-            Toast.makeText(context, R.string.try_again_later, Toast.LENGTH_LONG).show()
+            animation.value = false
+            error.value = TRY_AFTER
         }
     }
 

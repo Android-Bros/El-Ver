@@ -46,13 +46,18 @@ class HomeFragment : Fragment() {
             builder.setNegativeButton(R.string.no) { _, _ -> }
             builder.setPositiveButton(R.string.yes) { _, _ ->
                 val location = sharedPref.getCurrentLocation()
-                viewModel.sendEmergencyNotification(requireContext(), location!!)
+                viewModel.sendEmergencyNotification(location!!)
                 viewModel.dataConfirmation.observe(viewLifecycleOwner, { confirm ->
                     confirm?.let {
                         if (confirm) {
                             Toast.makeText(requireContext(), R.string.success, Toast.LENGTH_SHORT)
                                 .show()
                         }
+                    }
+                })
+                viewModel.error.observe(viewLifecycleOwner, { error ->
+                    error?.let {
+                        Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
                     }
                 })
             }

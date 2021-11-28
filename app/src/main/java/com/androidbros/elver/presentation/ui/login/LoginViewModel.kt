@@ -1,7 +1,5 @@
 package com.androidbros.elver.presentation.ui.login
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
@@ -13,21 +11,22 @@ class LoginViewModel : ViewModel() {
 
     val animation = MutableLiveData<Boolean>()
     val dataConfirmation = MutableLiveData<Boolean>()
+    val error = MutableLiveData<String>()
 
-    fun loginConfirmationStatus(email: String, password: String, context: Context) {
-        firebaseLogin(email, password, context)
+    fun loginConfirmationStatus(email: String, password: String) {
+        firebaseLogin(email, password)
     }
 
-    private fun firebaseLogin(email: String, password: String, context: Context) {
+    private fun firebaseLogin(email: String, password: String) {
         animation.value = true
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { process ->
             if (process.isSuccessful) {
                 dataConfirmation.value = true
                 animation.value = false
             }
-        }.addOnFailureListener { error ->
+        }.addOnFailureListener { errorMessage ->
             animation.value = false
-            Toast.makeText(context, error.localizedMessage, Toast.LENGTH_LONG).show()
+            error.value = errorMessage.localizedMessage
         }
     }
 

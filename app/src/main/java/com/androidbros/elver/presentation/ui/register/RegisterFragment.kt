@@ -127,8 +127,7 @@ class RegisterFragment : Fragment() {
                     name,
                     surname,
                     phoneNumber,
-                    selectedImage,
-                    requireContext()
+                    selectedImage
                 )
                 observeData()
             } else {
@@ -166,6 +165,11 @@ class RegisterFragment : Fragment() {
                         it.finish()
                     }
                 }
+            }
+        })
+        viewModel.error.observe(viewLifecycleOwner, { error ->
+            error?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
         })
     }

@@ -1,10 +1,9 @@
 package com.androidbros.elver.presentation.ui.home
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidbros.elver.model.Emergency
+import com.androidbros.elver.util.Constants.EMERGENCY
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -16,17 +15,17 @@ class HomeViewModel : ViewModel() {
     private val db = Firebase.firestore
 
     val dataConfirmation = MutableLiveData<Boolean>()
+    val error = MutableLiveData<String>()
 
-    fun sendEmergencyNotification(context: Context, location: String) {
-        sendEmergencyNotificationToFirebase(context, location, auth.uid!!)
+    fun sendEmergencyNotification(location: String) {
+        sendEmergencyNotificationToFirebase(location, auth.uid!!)
     }
 
     private fun sendEmergencyNotificationToFirebase(
-        context: Context,
         location: String,
         uuid: String
     ) {
-        db.collection("Emergency").document()
+        db.collection(EMERGENCY).document()
 
         val randomUUID = UUID.randomUUID().toString()
 
@@ -36,17 +35,13 @@ class HomeViewModel : ViewModel() {
             uuid
         )
 
-        db.collection("Emergency").document(randomUUID).set(emergency)
+        db.collection(EMERGENCY).document(randomUUID).set(emergency)
             .addOnCompleteListener { success ->
                 if (success.isSuccessful) {
                     dataConfirmation.value = true
                 }
-            }.addOnFailureListener { error ->
-                Toast.makeText(
-                    context,
-                    error.localizedMessage,
-                    Toast.LENGTH_LONG
-                ).show()
+            }.addOnFailureListener { errorMessage ->
+                error.value = errorMessage.localizedMessage
             }
     }
 

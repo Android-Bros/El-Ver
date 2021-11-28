@@ -3,6 +3,7 @@ package com.androidbros.elver.presentation.ui.needy_list
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidbros.elver.model.Requirement
+import com.androidbros.elver.util.Constants.REQUIREMENTS
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -11,8 +12,9 @@ import com.google.firebase.ktx.Firebase
 class NeedyListViewModel : ViewModel() {
 
     private val db = Firebase.firestore
-    private var needyList: ArrayList<Requirement> = arrayListOf()
+    private val needyList: ArrayList<Requirement> = arrayListOf()
 
+    val error = MutableLiveData<String>()
     val animation = MutableLiveData<Boolean>()
     val dataConfirmation = MutableLiveData<Boolean>()
     val listOfRequirement = MutableLiveData<ArrayList<Requirement>>()
@@ -22,7 +24,8 @@ class NeedyListViewModel : ViewModel() {
     }
 
     private fun getNeedyListFromFirebase() {
-        db.collection("Requirements").orderBy(
+        animation.value = true
+        db.collection(REQUIREMENTS).orderBy(
             "uploadTime",
             Query.Direction.DESCENDING
         ).addSnapshotListener { snapshot, exception ->
@@ -54,9 +57,13 @@ class NeedyListViewModel : ViewModel() {
                         needyList.add(requirement)
                     }
                     listOfRequirement.value = needyList
+                    animation.value = false
                 }
             }
-
+            if (exception != null) {
+                animation.value = false
+                error.value = exception.localizedMessage
+            }
         }
     }
 

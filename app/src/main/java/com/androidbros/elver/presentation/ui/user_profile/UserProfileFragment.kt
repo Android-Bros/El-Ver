@@ -5,12 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.androidbros.elver.R
-import com.androidbros.elver.model.User
 import com.androidbros.elver.databinding.FragmentUserProfileBinding
+import com.androidbros.elver.model.User
 import com.androidbros.elver.presentation.ui.MainActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
@@ -35,7 +36,7 @@ class UserProfileFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity()).get(UserProfileViewModel::class.java)
 
-        viewModel.getProfileInfo(requireContext())
+        viewModel.getProfileInfo()
         observeData()
 
         binding.buttonDeleteMyAccount.setOnClickListener {
@@ -44,7 +45,7 @@ class UserProfileFragment : Fragment() {
                 R.string.are_you_want_to_delete_account,
                 Snackbar.LENGTH_LONG
             ).setAction(R.string.yes) {
-                viewModel.deleteAccount(requireContext())
+                viewModel.deleteAccount()
                 observeDataDeleteAccount()
             }.show()
         }
@@ -102,8 +103,8 @@ class UserProfileFragment : Fragment() {
                 }
             }
         })
-        viewModel.deleteAccountState.observe(viewLifecycleOwner, { dataConfirm ->
-            dataConfirm?.let { data ->
+        viewModel.deleteAccountState.observe(viewLifecycleOwner, { deletedState ->
+            deletedState?.let { data ->
                 if (data) {
                     activity?.let {
                         val intent = Intent(it, MainActivity::class.java)
@@ -111,6 +112,11 @@ class UserProfileFragment : Fragment() {
                         it.finish()
                     }
                 }
+            }
+        })
+        viewModel.error.observe(viewLifecycleOwner, { error ->
+            error?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
         })
     }
