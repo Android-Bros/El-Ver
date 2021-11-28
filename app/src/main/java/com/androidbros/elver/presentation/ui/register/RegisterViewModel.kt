@@ -1,11 +1,11 @@
 package com.androidbros.elver.presentation.ui.register
 
-import android.content.Context
 import android.net.Uri
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidbros.elver.model.User
+import com.androidbros.elver.util.Constants.IMAGES
+import com.androidbros.elver.util.Constants.USERS
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -21,11 +21,12 @@ class RegisterViewModel : ViewModel() {
 
     val animation = MutableLiveData<Boolean>()
     val dataConfirmation = MutableLiveData<Boolean>()
+    val error = MutableLiveData<String>()
 
     fun registrationConfirmationStatus(
         email: String, password: String,
         name: String, surname: String,
-        phoneNumber: String, selectedImage: Uri?, context: Context
+        phoneNumber: String, selectedImage: Uri?
     ) {
         firebaseRegistrationConfirmation(
             email,
@@ -33,14 +34,13 @@ class RegisterViewModel : ViewModel() {
             name,
             surname,
             phoneNumber,
-            selectedImage,
-            context
+            selectedImage
         )
     }
 
     private fun firebaseRegistrationConfirmation(
         email: String, password: String, name: String, surname: String, phoneNumber: String,
-        selectedImage: Uri?, context: Context
+        selectedImage: Uri?
     ) {
         animation.value = true
         auth.createUserWithEmailAndPassword(email, password)
@@ -54,10 +54,10 @@ class RegisterViewModel : ViewModel() {
                         val reference = storage.reference
                         val uuid = UUID.randomUUID()
                         profileImageName = "${uuid}.jpeg"
-                        val imageReference = reference.child("Images").child(profileImageName)
+                        val imageReference = reference.child(IMAGES).child(profileImageName)
                         imageReference.putFile(selectedImage).addOnSuccessListener {
                             val uploadedImageReference =
-                                reference.child("Images").child(profileImageName)
+                                reference.child(IMAGES).child(profileImageName)
                             uploadedImageReference.downloadUrl.addOnSuccessListener { uri ->
                                 imageReferenceLink = uri.toString()
                                 if (imageReferenceLink != null) {
@@ -71,26 +71,21 @@ class RegisterViewModel : ViewModel() {
                                         profileImageName,
                                         registrationTime
                                     )
-                                    db.collection("Users").document(activeUserUid).set(user)
+                                    db.collection(USERS).document(activeUserUid).set(user)
                                         .addOnCompleteListener { success ->
                                             if (success.isSuccessful) {
                                                 dataConfirmation.value = true
                                                 animation.value = false
                                             }
-                                        }.addOnFailureListener { error ->
+                                        }.addOnFailureListener { errorMessage ->
                                             animation.value = false
-                                            Toast.makeText(
-                                                context,
-                                                error.localizedMessage,
-                                                Toast.LENGTH_LONG
-                                            ).show()
+                                            error.value = errorMessage.localizedMessage
                                         }
                                 }
                             }
                         }.addOnFailureListener { exception ->
                             animation.value = false
-                            Toast.makeText(context, exception.localizedMessage, Toast.LENGTH_SHORT)
-                                .show()
+                            error.value = exception.localizedMessage
                         }
                     } else {
                         val user = User(
@@ -103,25 +98,21 @@ class RegisterViewModel : ViewModel() {
                             null,
                             registrationTime
                         )
-                        db.collection("Users")
+                        db.collection(USERS)
                             .document(activeUserUid).set(user).addOnCompleteListener { success ->
                                 if (success.isSuccessful) {
                                     dataConfirmation.value = true
                                     animation.value = false
                                 }
-                            }.addOnFailureListener { error ->
+                            }.addOnFailureListener { errorMessage ->
                                 animation.value = false
-                                Toast.makeText(
-                                    context,
-                                    error.localizedMessage,
-                                    Toast.LENGTH_LONG
-                                ).show()
+                                error.value = errorMessage.localizedMessage
                             }
                     }
                 }
-            }.addOnFailureListener { error ->
+            }.addOnFailureListener { errorMessage ->
                 animation.value = false
-                Toast.makeText(context, error.localizedMessage, Toast.LENGTH_LONG).show()
+                error.value = errorMessage.localizedMessage
             }
     }
 

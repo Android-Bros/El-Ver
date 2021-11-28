@@ -37,7 +37,7 @@ class LoginFragment : Fragment() {
                 val email = binding.editTextEmail.text.toString()
                 val password = binding.editTextUserPassword.text.toString()
 
-                viewModel.loginConfirmationStatus(email, password, requireContext())
+                viewModel.loginConfirmationStatus(email, password)
                 observeData()
             } else {
                 Toast.makeText(requireContext(), R.string.fill_in_the_blanks, Toast.LENGTH_SHORT)
@@ -72,6 +72,11 @@ class LoginFragment : Fragment() {
                         it.finish()
                     }
                 }
+            }
+        })
+        viewModel.error.observe(viewLifecycleOwner, { error ->
+            error?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
         })
     }

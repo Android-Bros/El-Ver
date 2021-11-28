@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.androidbros.elver.presentation.adapter.NeedyListAdapter
 import com.androidbros.elver.databinding.FragmentNeedyListBinding
-import com.androidbros.elver.model.Requirement
+import com.androidbros.elver.presentation.adapter.NeedyListAdapter
 
 class NeedyListFragment : Fragment() {
 
@@ -56,6 +56,9 @@ class NeedyListFragment : Fragment() {
             list?.let {
                 adapter.requirement = it
             }
+        })
+        viewModel.error.observe(viewLifecycleOwner, {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         })
     }
 
