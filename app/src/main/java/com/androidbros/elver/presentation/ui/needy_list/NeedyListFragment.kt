@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidbros.elver.databinding.FragmentNeedyListBinding
 import com.androidbros.elver.presentation.adapter.NeedyListAdapter
+import com.androidbros.elver.util.RequirementAdapterClickListener
 
-class NeedyListFragment : Fragment() {
+class NeedyListFragment : Fragment(), RequirementAdapterClickListener {
 
     private var _binding: FragmentNeedyListBinding? = null
     private val binding get() = _binding!!
@@ -65,6 +67,13 @@ class NeedyListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onRequirementClickListener(location: String) {
+        val action = NeedyListFragmentDirections.actionNeedyListFragmentToNeedyMapFragment(
+            location
+        )
+        findNavController().navigate(action)
     }
 
 }

@@ -2,15 +2,13 @@ package com.androidbros.elver.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.androidbros.elver.databinding.RequirementListItemBinding
 import com.androidbros.elver.model.Requirement
-import com.androidbros.elver.presentation.ui.needy_list.NeedyListFragmentDirections
+import com.androidbros.elver.util.RequirementAdapterClickListener
 
 class NeedyListAdapter(
-    private val parentFragment: Fragment
+    private val clickListener: RequirementAdapterClickListener
 ) : RecyclerView.Adapter<NeedyListAdapter.NeedyListViewHolder>() {
 
     var requirement = listOf<Requirement>()
@@ -30,37 +28,15 @@ class NeedyListAdapter(
 
     override fun onBindViewHolder(holder: NeedyListViewHolder, position: Int) {
         val currentRequirement = requirement[position]
-        if (currentRequirement.clothes) {
-            holder.itemBinding.textViewClothes.text = "Giyim: Evet"
-        } else {
-            holder.itemBinding.textViewClothes.text = "Giyim: Hayır"
-        }
-        if (currentRequirement.foodAndWater) {
-            holder.itemBinding.textViewFoodWater.text = "Gıda ve Su: Evet"
-        } else {
-            holder.itemBinding.textViewFoodWater.text = "Gıda ve Su: Hayır"
-        }
-        if (currentRequirement.cleaningMaterial) {
-            holder.itemBinding.textViewCleaningMaterial.text = "Hijyen Malzemeleri: Evet"
-        } else {
-            holder.itemBinding.textViewCleaningMaterial.text = "Hijyen Malzemeleri: Hayır"
-        }
-        if (currentRequirement.tent) {
-            holder.itemBinding.textViewTent.text = "Çadır: Evet"
-        } else {
-            holder.itemBinding.textViewTent.text = "Çadır: Hayır"
-        }
-        if (currentRequirement.blanket) {
-            holder.itemBinding.textViewBlanket.text = "Uyku Tulumu veya Battaniye: Evet"
-        } else {
-            holder.itemBinding.textViewBlanket.text = "Uyku Tulumu veya Battaniye: Hayır"
-        }
-
+        holder.itemBinding.textViewBlanketState.text = currentRequirement.blanket.toString()
+        holder.itemBinding.textViewClothesState.text = currentRequirement.clothes.toString()
+        holder.itemBinding.textViewFoodAndWaterState.text =
+            currentRequirement.foodAndWater.toString()
+        holder.itemBinding.textViewMaterialState.text =
+            currentRequirement.cleaningMaterial.toString()
+        holder.itemBinding.textViewTentState.text = currentRequirement.tent.toString()
         holder.itemBinding.cardView.setOnClickListener {
-            val action = NeedyListFragmentDirections.actionNeedyListFragmentToNeedyMapFragment(
-                currentRequirement.location
-            )
-            parentFragment.findNavController().navigate(action)
+            clickListener.onRequirementClickListener(currentRequirement.location)
         }
     }
 
